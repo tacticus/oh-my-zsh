@@ -3,7 +3,7 @@ local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 if [[ "$EUID" = "0" ]] || [[ "$USER" = 'root' ]]
 then 
     local user_host='%{$fg[red]%}%n%{$fg[white]%}@%{$fg[green]%}%m%{$reset_color%}'
-elif [[ "$USER" = 'tacticus' ]] || [[ "$USER" = 'kcollasarundell' ]]; then
+elif [[ "$USER" = $DEFAULT_USER ]] ; then
     local user_host='%{$fg[blue]%}%n%{$fg[white]%}@%{$fg[green]%}%m%{$reset_color%}'
 else
     local user_host='%{$fg[yellow]%}%n%{$fg[white]%}@%{$fg[green]%}%m%{$reset_color%}'
