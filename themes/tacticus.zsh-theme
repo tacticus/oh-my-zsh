@@ -13,7 +13,7 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 fi 
 
 
-if [ $DEFAULT_HOST  != true ] ; then 
+if [ -z $DEFAULT_HOST ] ; then 
  local host='%{$fg[green]%}%m%{$reset_color%}'
 fi
 
