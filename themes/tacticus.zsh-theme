@@ -2,12 +2,16 @@ setopt promptsubst
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 if [[ "$EUID" = "0" ]] || [[ "$USER" = 'root' ]]
 then 
-    local user_host='%{$fg[red]%}%n%{$fg[white]%}@%{$fg[green]%}%m%{$reset_color%}'
+    local user='%{$fg[red]%}%n%{$fg[white]%}'
 elif [[ "$USER" = $DEFAULT_USER ]] ; then
-    local user_host='@%{$fg[green]%}%m%{$reset_color%}'
+    local user=''
 else
-    local user_host='%{$fg[yellow]%}%n%{$fg[white]%}@%{$fg[green]%}%m%{$reset_color%}'
+    local user='%{$fg[yellow]%}%n%{$fg[white]%}'
 fi 
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  SESSION_TYPE=remote/ssh
+  local host='%{$fg[green]%}%m%{$reset_color%}'
+fi
 
 
 
@@ -28,7 +32,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$GIT_PROMPT_INFO%})"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$GIT_DIRTY_COLOR%}✘"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$GIT_CLEAN_COLOR%}✔"
 
-PROMPT="╭─${user_host} %{$PROMPT_SUCCESS_COLOR%}%~%{$reset_color%}  
+PROMPT="╭─${user}@${host} %{$PROMPT_SUCCESS_COLOR%}%~%{$reset_color%}  
 %{$reset_color%}╰─%{$reset_color%}%{$PROMPT_PROMPT%}ᐅ%{$reset_color%} "
 
 RPROMPT='%{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%} $(git_prompt_status) %F{green}%D{%L:%M} %F{yellow}%D{%p}%f'
