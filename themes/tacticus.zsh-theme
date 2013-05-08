@@ -36,8 +36,8 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$GIT_PROMPT_INFO%})"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$GIT_DIRTY_COLOR%}x"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$GIT_CLEAN_COLOR%}G"
 
-PROMPT="╭─${user}@${host} %{$PROMPT_SUCCESS_COLOR%}%~%{$reset_color%}  
-%{$reset_color%}╰─%{$reset_color%}%{$PROMPT_PROMPT%}>%{$reset_color%} "
+PROMPT="|─${user}@${host} %{$PROMPT_SUCCESS_COLOR%}%~%{$reset_color%}  
+%{$reset_color%}|─%{$reset_color%}%{$PROMPT_PROMPT%}>%{$reset_color%} "
 
 RPROMPT='%{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%} $(git_prompt_status) %F{green}%D{%L:%M} %F{yellow}%D{%p}%f'
 
