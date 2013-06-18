@@ -21,7 +21,7 @@ fi
 
 autoload -U add-zsh-hook
 
-HOST_PROMPT_="%{$fg_bold[red]%}@$HOST[0,4] →  %{$fg_bold[cyan]%}%c "
+#HOST_PROMPT_="%{$fg_bold[red]%}@$HOST[0,4] →  %{$fg_bold[cyan]%}%c "
 
 PROMPT_SUCCESS_COLOR=$FG[117]
 PROMPT_FAILURE_COLOR=$FG[124]
